@@ -41,12 +41,12 @@ jobs:
       - name: Generate Prisma Client
         run: pnpm prisma generate
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: "postgresql://aliraza:aliraza@localhost:5432/next-better"
 
       - name: Check Prisma migrations
         run: pnpm prisma migrate status
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: "postgresql://aliraza:aliraza@localhost:5432/next-better"
 
       - name: Lint
         run: pnpm lint
@@ -57,5 +57,6 @@ jobs:
       - name: Build
         run: pnpm build
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          NEXT_PUBLIC_BETTER_AUTH_URL: ${{ secrets.NEXT_PUBLIC_BETTER_AUTH_URL }}
+          DATABASE_URL: "postgresql://aliraza:aliraza@localhost:5432/next-better"
+          BETTER_AUTH_SECRET: "supersecret"
+          NEXT_PUBLIC_BETTER_AUTH_URL: "http://localhost:3000"
