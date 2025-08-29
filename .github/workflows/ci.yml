@@ -57,5 +57,6 @@ jobs:
       - name: Build
         run: pnpm build
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          NEXT_PUBLIC_BETTER_AUTH_URL: ${{ secrets.NEXT_PUBLIC_BETTER_AUTH_URL }}
+          DATABASE_URL: "postgresql://opencut:opencutthegoat@localhost:5432/opencut"
+          BETTER_AUTH_SECRET: "supersecret"
+          NEXT_PUBLIC_BETTER_AUTH_URL: "http://localhost:3000"
